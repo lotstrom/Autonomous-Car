@@ -205,16 +205,8 @@ if(STRAIGHT == 1) {
  //Very simple, check if there is an actual degree, if not its 0
                  
                  
-		        cerr << "Most recent steering data: '" << degrees << "'" << endl;
+		cerr << "Most recent steering data: '" << degrees << "'" << endl;
                 cerr << "steering angle: '" << steer << "'" << endl;
-
-
-
-                // Design your control algorithm here depending on the input data from above.
-
-
-
-		       
 
                 // With setSteeringWheelAngle, you can steer in the range of -26 (left) .. 0 (straight) .. +25 (right)
                 double desiredSteeringWheelAngle = steer; // 4 degree but SteeringWheelAngle expects the angle in radians!
