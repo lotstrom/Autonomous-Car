@@ -75,17 +75,17 @@ bool LaneDetector::readSharedImage(Container &c)
 		// Check if we could successfully attach to the shared memory.
 		if (m_sharedImageMemory->isValid())
 		{
-			// Lock the memory region to gain exclusive access. REMEMBER!!! DO NOT FAIL WITHIN lock() / unlock(), otherwise, the image producing process would fail.
+			// Lock the memory region to gain exclusive access. 
 			m_sharedImageMemory->lock();
 			{
 				const uint32_t numberOfChannels = 3;
-				// For example, simply show the image.
+			
 				if (m_image == NULL)
 				{
 					m_image = cvCreateImage(cvSize(si.getWidth(), si.getHeight()), IPL_DEPTH_8U, numberOfChannels);
 				}
 
-				// Copying the image data is very expensive...
+				
 				if (m_image != NULL)
 				{
 					memcpy(m_image->imageData,
@@ -94,7 +94,7 @@ bool LaneDetector::readSharedImage(Container &c)
 				}
 			}
 
-			// Release the memory region so that the image produce (i.e. the camera for example) can provide the next raw image data.
+			
 			m_sharedImageMemory->unlock();
 
 			// Mirror the image.
@@ -106,11 +106,8 @@ bool LaneDetector::readSharedImage(Container &c)
 	return retVal;
 }
 
-// You should start your work in this method.
-
 void LaneDetector::processImage()
 {
-	// Example: Show the image
 	if (m_debug)
 	{
 		if (m_image != NULL)
