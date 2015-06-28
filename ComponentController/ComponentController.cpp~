@@ -1,0 +1,35 @@
+#include "Arduino.h"
+#include "ComponentController.h"
+
+ComponentController::ComponentController(){
+	//Attach servos
+	servo.attach(9);
+	//esc.attach(8);
+	//Set globals to neutral
+	currentSpeed = currentAngle = 92;
+}
+
+//Write esc
+void ComponentController::writeEsc(int speed){
+
+}
+
+//Write servo
+void ComponentController::writeServo(int angle){
+
+}
+
+//Read infrared
+int ComponentController::read_IR(){
+	return 10;
+}
+
+//Read ultrasound 1
+int ComponentController::read_US_1(){
+	return 50;
+}
+
+//Read ultrasound 2
+int ComponentController::read_US_2(){
+	return 100;
+}
